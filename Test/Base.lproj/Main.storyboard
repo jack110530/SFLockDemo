@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Caj-6w-PuP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JRU-yg-Y5b">
+                                <rect key="frame" x="89.5" y="432.5" width="235" height="32"/>
+                                <segments>
+                                    <segment title="自旋锁"/>
+                                    <segment title="互斥锁"/>
+                                    <segment title="递归锁"/>
+                                    <segment title="条件锁"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sih-mw-UNz">
+                                <rect key="frame" x="132" y="493.5" width="150" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="E8z-yf-UdA"/>
+                                </constraints>
+                                <state key="normal" title="开始测试"/>
+                                <connections>
+                                    <action selector="startTestEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xAB-pg-O1j"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试结果请看控制台输出内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sz7-Xc-0gx">
+                                <rect key="frame" x="140.5" y="533.5" width="133" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="sih-mw-UNz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jgg-RQ-raw"/>
+                            <constraint firstItem="Sz7-Xc-0gx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U4b-MY-a2c"/>
+                            <constraint firstItem="Sz7-Xc-0gx" firstAttribute="top" secondItem="sih-mw-UNz" secondAttribute="bottom" constant="10" id="bHc-z9-RPr"/>
+                            <constraint firstItem="JRU-yg-Y5b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eFq-Iz-gXm"/>
+                            <constraint firstItem="sih-mw-UNz" firstAttribute="top" secondItem="JRU-yg-Y5b" secondAttribute="bottom" constant="30" id="hrF-s7-st1"/>
+                            <constraint firstItem="JRU-yg-Y5b" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qYH-oa-piz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tAA-oc-QTs"/>
+                    <connections>
+                        <outlet property="segView" destination="JRU-yg-Y5b" id="fc0-Np-Asl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="64.955357142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kS6-Fz-JJl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Caj-6w-PuP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TeG-t5-BQO">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5BU-er-VRv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ANd-4q-MZ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="64.955357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
