@@ -18,6 +18,7 @@
 @property (nonatomic, strong) SFUnfairLock *unfairLock;
 @property (nonatomic, strong) SFRecursiveLock *recursiveLock;
 @property (nonatomic, strong) SFConditionLock *conditionLock;
+@property (nonatomic, strong) dispatch_queue_t serialQueue;
 @end
 
 @implementation ViewController
@@ -28,6 +29,7 @@
     self.unfairLock = [[SFUnfairLock alloc]init];
     self.recursiveLock = [[SFRecursiveLock alloc]init];
     self.conditionLock = [[SFConditionLock alloc]initWithCondition:1];
+    self.serialQueue = dispatch_queue_create("com.test", DISPATCH_QUEUE_SERIAL);
 }
 
 #pragma mark - 点击屏幕开始测试
@@ -176,5 +178,34 @@
     [self.conditionLock unlockWithCondition:4];
 }
 
+#pragma mark - GCD同步串行队列也可达到线程同步的效果
+- (IBAction)GCDSerialQueueDemoEvent:(UIButton *)sender {
+    self.tickets = 30;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 10; i++) {
+            [self saleTicketWithGcd];
+        }
+    });
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 10; i++) {
+            [self saleTicketWithGcd];
+        }
+    });
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 10; i++) {
+            [self saleTicketWithGcd];
+        }
+    });
+}
+- (void)saleTicketWithGcd {
+    dispatch_sync(self.serialQueue, ^{
+        int oldTicketsCount = self.tickets;
+        sleep(.2);
+        oldTicketsCount--;
+        self.tickets = oldTicketsCount;
+        NSLog(@"【GCD】剩余票数：%d 线程：%@", oldTicketsCount, [NSThread currentThread]);
+    });
+}
 
 @end

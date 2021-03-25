@@ -42,14 +42,24 @@
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYa-DL-60a">
+                                <rect key="frame" x="52.5" y="575.5" width="309" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <state key="normal" title="  GCD同步串行队列也可达到线程同步的效果  "/>
+                                <connections>
+                                    <action selector="GCDSerialQueueDemoEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iWZ-DM-kvi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="sih-mw-UNz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jgg-RQ-raw"/>
                             <constraint firstItem="Sz7-Xc-0gx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U4b-MY-a2c"/>
+                            <constraint firstItem="TYa-DL-60a" firstAttribute="top" secondItem="Sz7-Xc-0gx" secondAttribute="bottom" constant="30" id="aQL-nc-q7f"/>
                             <constraint firstItem="Sz7-Xc-0gx" firstAttribute="top" secondItem="sih-mw-UNz" secondAttribute="bottom" constant="10" id="bHc-z9-RPr"/>
                             <constraint firstItem="JRU-yg-Y5b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eFq-Iz-gXm"/>
+                            <constraint firstItem="TYa-DL-60a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gHf-DS-R46"/>
                             <constraint firstItem="sih-mw-UNz" firstAttribute="top" secondItem="JRU-yg-Y5b" secondAttribute="bottom" constant="30" id="hrF-s7-st1"/>
                             <constraint firstItem="JRU-yg-Y5b" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qYH-oa-piz"/>
                         </constraints>
@@ -91,6 +101,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
