@@ -9,4 +9,4 @@
 顿时来了兴趣，于是自己就尝试着简单实现了一下。
 
 ## 博客链接
-[notion](https://www.notion.so/6ab44132fdb448a285e6b898d8e8cd5f)
+[notion](https://www.notion.so/6ab44132fdb448a285e6b898d8e8cd5f){:target="_blank"}
